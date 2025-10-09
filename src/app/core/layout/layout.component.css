@@ -1,0 +1,22 @@
+:host {
+  display: grid;
+  place-items: center;
+  background-color: var(--color-core-background);
+}
+
+.main-container {
+  width: 100svw;
+  min-height: 100svh;
+}
+
+.main-content {
+  justify-self: center;
+  width: 80%;
+  max-width: var(--max-viewport-breakpoint);
+  min-width: var(--min-viewport-breakpoint);
+  padding: var(--spacing-md);
+}
+
+app-header {
+  background-color: var(--color-core-foreground);
+}
