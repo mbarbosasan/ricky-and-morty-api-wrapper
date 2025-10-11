@@ -20,8 +20,17 @@
 .button .badge {
   padding: 0 var(--spacing-md);
   border-radius: 50%;
+  background-color: var(--color-core-content);
+  color: var(--color-core-foreground);
+}
+
+.button-primary .badge {
   background-color: var(--color-core-foreground);
   color: var(--color-core-content);
+}
+
+a span {
+  color: inherit;
 }
 
 a,
