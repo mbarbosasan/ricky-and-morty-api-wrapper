@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs';
+import { catchError, debounceTime, filter, of, switchMap } from 'rxjs';
 import { InputComponent } from 'src/app/shared/ui/input/input.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { SearchService } from './services/search.service';
@@ -22,10 +22,16 @@ export class InicioComponent implements OnInit {
 
   searchResult = toSignal(
     this.search.valueChanges.pipe(
-      distinctUntilChanged(),
       filter(() => this.search.valid),
       debounceTime(500),
-      switchMap((character) => this.searchService.searchCharacters(character!)),
+      switchMap((character) =>
+        this.searchService.searchCharacters(character!).pipe(
+          catchError((e) => {
+            console.error(e);
+            return of('');
+          }),
+        ),
+      ),
     ),
   );
 
