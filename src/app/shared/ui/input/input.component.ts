@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, input, signal } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -12,7 +12,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: InputComponent,
+      useExisting: forwardRef(() => InputComponent),
     },
   ],
 })
@@ -23,12 +23,14 @@ export class InputComponent implements ControlValueAccessor {
   placeholder = input<string>('');
 
   value = signal('');
+  disabled = signal(false);
   onChange = (value: string) => {};
   onTouched = () => {};
-  disabled = signal(false);
 
-  writeValue(obj: string): void {
-    this.value.set(obj);
+  writeValue(value: any): void {
+    if (typeof value === 'string') {
+      this.value.set(value);
+    }
   }
   registerOnChange(fn: (string: string) => string): void {
     this.onChange = fn;
@@ -38,5 +40,12 @@ export class InputComponent implements ControlValueAccessor {
   }
   setDisabledState?(isDisabled: boolean): void {
     this.disabled.set(isDisabled);
+  }
+
+  onInputChange(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    this.value.set(value);
+    this.onChange(value);
+    this.onTouched();
   }
 }
