@@ -1,11 +1,35 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs';
+import { InputComponent } from 'src/app/shared/ui/input/input.component';
+import { SearchResultComponent } from './search-result/search-result.component';
+import { SearchService } from './services/search.service';
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [],
+  imports: [InputComponent, SearchResultComponent, ReactiveFormsModule],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InicioComponent {}
+export class InicioComponent implements OnInit {
+  private readonly fb = inject(FormBuilder);
+  private readonly searchService = inject(SearchService);
+
+  search = this.fb.control('', [Validators.required, Validators.minLength(3)]);
+
+  searchResult = toSignal(
+    this.search.valueChanges.pipe(
+      distinctUntilChanged(),
+      filter(() => this.search.valid),
+      debounceTime(500),
+      switchMap((character) => this.searchService.searchCharacters(character!)),
+    ),
+  );
+
+  ngOnInit(): void {
+    this.search.valueChanges.subscribe(console.log);
+  }
+}

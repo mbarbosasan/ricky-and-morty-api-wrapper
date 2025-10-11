@@ -1,4 +1,9 @@
+:host {
+  padding: var(--spacing-md);
+}
+
 .search-container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
