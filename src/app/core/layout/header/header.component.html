@@ -1,8 +1,7 @@
 <header class="header-container">
-  <img ngSrc="/assets/rick-and-morty-logo.png" width="114" height="64" alt="" />
+  <img ngSrc="/assets/rick-and-morty-logo.png" width="114" height="64" alt="Ricky and Morty Logo" priority />
 
   <nav>
-    <a [routerLink]="['/']">Início</a>
-    <a [routerLink]="['favoritos']">Favoritos</a>
+    <app-button-group [buttons]="headerButtons()"></app-button-group>
   </nav>
 </header>

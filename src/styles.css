@@ -18,6 +18,10 @@
   font-family: 'Poppins', 'Helvetica', monospace;
 }
 
+a {
+  text-decoration: none;
+}
+
 :root {
   --font-bold: 700;
   --font-regular: 400;
@@ -35,7 +39,7 @@
   --border-radius-md: 1.275rem;
 
 
-  --spacing-xs: 4px;
+  --spacing-sm: 4px;
   --spacing-md: 8px;
   --spacing-xl: 12px;
   --spacing-2xl: 16px;
@@ -90,8 +94,6 @@
   .text-2xl {
     font-size: 3rem;
   }
-
-  
 }
 
 .creepster {

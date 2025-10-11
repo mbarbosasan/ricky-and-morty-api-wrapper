@@ -1,0 +1,20 @@
+@if (type() === 'link') {
+  <a
+    [class]="classes()"
+    [routerLink]="routerLink()"
+    routerLinkActive="button-primary"
+    [routerLinkActiveOptions]="{ exact: true }"
+    (click)="onClick.emit()">
+    @if (icon()) {
+      <span class="material-symbols-outlined">{{ icon() }}</span>
+    }
+
+    <span>{{ label() }}</span>
+
+    @if (badge()) {
+      <span class="badge">1</span>
+    }
+  </a>
+} @else {
+  <button [class]="classes()" [type]="type()" (click)="onClick.emit()">{{ label() }}</button>
+}

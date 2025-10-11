@@ -1,0 +1,19 @@
+.button-group-container {
+  display: flex;
+  align-items: center;
+}
+
+.button.active {
+  color: var(--color-core);
+  background-color: var(--color-neutral-surface);
+}
+
+:host ::ng-deep .button-group-container :first-child a,
+:host ::ng-deep .button-group-container :first-child button {
+  border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+}
+
+:host ::ng-deep .button-group-container :last-child a,
+:host ::ng-deep .button-group-container :last-child button {
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+}

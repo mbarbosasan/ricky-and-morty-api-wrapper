@@ -4,7 +4,8 @@
 }
 
 .header-container {
-  width: var(--max-viewport-breakpoint);
+  width: 100%;
+  max-width: var(--max-viewport-breakpoint);
   padding: var(--spacing-md);
   border: 1px solid var(--color-core-border);
 

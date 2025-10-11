@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LayoutComponent } from './core/layout/layout.component';
 
@@ -8,7 +8,6 @@ import { LayoutComponent } from './core/layout/layout.component';
   imports: [RouterOutlet, LayoutComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
-  array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-}
+export class AppComponent {}

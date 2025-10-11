@@ -1,0 +1,19 @@
+<div class="button-group-container">
+  @for (btn of buttonsModel(); track $index) {
+    @if (btn.type === 'button') {
+      <!-- Idealmente aqui eu criaria um novo input de classes a serem inseridas quando "active", mas não tenho caso de uso
+        pra isso e por isso vou manter assim. 
+      -->
+      <app-button type="button" [label]="btn.label" [variant]="btn.selected ? 'primary' : 'secondary'" />
+    } @else {
+      <app-button
+        type="link"
+        [label]="btn.label"
+        [variant]="'secondary'"
+        [icon]="btn.icon"
+        [routerLink]="btn.routerLink"
+        [badge]="btn.badge"
+        (onClick)="selectedButton.set($index)" />
+    }
+  }
+</div>

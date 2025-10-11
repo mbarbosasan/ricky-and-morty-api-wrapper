@@ -1,0 +1,32 @@
+.button {
+  margin: 0;
+  padding: var(--spacing-md) var(--spacing-xl);
+  color: var(--color-core-content);
+  background: var(--color-core-foreground);
+  border: 1px solid #454242;
+  cursor: pointer;
+  transition: background ease 0.2s;
+}
+
+.button-primary {
+  color: var(--color-core-foreground);
+  background-color: var(--color-neutral-surface);
+}
+
+.button-primary:hover {
+  background-color: color-mix(in oklab, var(--color-neutral-surface) 90%, transparent);
+}
+
+.button .badge {
+  padding: 0 var(--spacing-md);
+  border-radius: 50%;
+  background-color: var(--color-core-foreground);
+  color: var(--color-core-content);
+}
+
+a,
+button {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
