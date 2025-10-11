@@ -16,7 +16,6 @@
   box-sizing: border-box;
 
   font-family: 'Poppins', 'Helvetica', monospace;
-  color: var(--color-core-content)
 }
 
 a {
@@ -32,12 +31,14 @@ a {
   --color-core-foreground: #0a0a0a;
 
   --color-core-content: #fafafa;
-  --color-core-content-low: #fafafa;
+  --color-core-content-low: #A4A4A4;
   --color-neutral-surface: #ffffff;
 
-  --color-core-border: #0a0a0a;
+  --color-core-border: #3D3D3D;
   --border-radius-sm: .875rem;
   --border-radius-md: 1.275rem;
+  
+  --color-error: #9a0202;
 
 
   --spacing-sm: 4px;
@@ -52,12 +53,21 @@ a {
 }
 
 @layer utilities {
+
+  * {
+    color: var(--co0lor-core-content);
+  }
+
   .text-primary {
     color: var(--color-core-content);
   }
 
   .text-secondary {
     color: var(--color-core-content-low);
+  }
+
+  .text-error {
+    color: var(--color-error);
   }
 
   .bg-primary {
@@ -101,4 +111,8 @@ a {
   font-family: 'Creepster';
   color: #00b5cc;
   text-shadow: -1px 0 #B2DF28, 0 1px #B2DF28, 1px 0 #B2DF28, 0 -1px #B2DF28;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings: 'FILL' 1;
 }

@@ -3,7 +3,7 @@
     [class]="classes()"
     [routerLink]="routerLink()"
     routerLinkActive="button-primary"
-    [routerLinkActiveOptions]="{ exact: true }"
+    [routerLinkActiveOptions]="{ queryParams: 'ignored', matrixParams: 'ignored', paths: 'exact', fragment: 'ignored' }"
     (click)="onClick.emit()">
     @if (icon()) {
       <span class="material-symbols-outlined">{{ icon() }}</span>
@@ -12,7 +12,7 @@
     <span>{{ label() }}</span>
 
     @if (badge()) {
-      <span class="badge">1</span>
+      <span class="badge">{{ badge() }} </span>
     }
   </a>
 } @else {

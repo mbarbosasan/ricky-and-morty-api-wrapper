@@ -1,5 +1,7 @@
 import { NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { FavoriteCharactersService } from 'src/app/features/favoritos/services/favorite-characters.service';
 import { ButtonGroupComponent } from 'src/app/shared/ui/button-group/button-group.component';
 import { ButtonGroup } from 'src/app/shared/ui/button-group/types/button-group.model';
 
@@ -12,7 +14,11 @@ import { ButtonGroup } from 'src/app/shared/ui/button-group/types/button-group.m
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  headerButtons = signal<ButtonGroup[]>([
+  private readonly favoritesService = inject(FavoriteCharactersService);
+
+  favorites = toSignal(this.favoritesService.favoriteCharacters$);
+
+  headerButtons = computed<ButtonGroup[]>(() => [
     {
       label: 'Início',
       type: 'link',
@@ -26,7 +32,7 @@ export class HeaderComponent {
       routerLink: '/favoritos',
       selected: false,
       icon: 'star',
-      badge: 10,
+      badge: this.favorites()?.length,
     },
   ]);
 }

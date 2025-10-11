@@ -12,6 +12,7 @@
   border: none;
   font-size: var(--text-base);
   outline: none;
+  color: var(--color-core-content);
 }
 
 .label {
@@ -23,6 +24,7 @@
   padding: 0 var(--spacing-xs);
   color: #999;
   pointer-events: none;
+  background-color: var(--color-core-background);
 }
 
 .input:focus ~ .label,
