@@ -1,0 +1,22 @@
+.input-group {
+  position: relative;
+  border: 1px solid #454545;
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+}
+
+.input {
+  width: 100%;
+  background-color: transparent;
+  padding: var(--spacing-md);
+  border: none;
+  font-size: var(--text-base);
+  outline: none;
+}
+
+.label {
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  color: #999;
+}

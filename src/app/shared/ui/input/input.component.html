@@ -1,0 +1,13 @@
+<div class="input-group">
+  <input
+    type="text"
+    class="input"
+    [id]="id()"
+    [name]="id()"
+    required
+    [placeholder]="placeholder()"
+    (input)="onChange($any($event.target).value)"
+    (blur)="onTouched()"
+    [disabled]="disabled()" />
+  <label [for]="id()" class="label">{{ label() }}</label>
+</div>
