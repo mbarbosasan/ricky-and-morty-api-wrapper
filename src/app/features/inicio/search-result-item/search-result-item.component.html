@@ -1,0 +1,15 @@
+<div class="character-card">
+  <div class="character-image-container">
+    <img [ngSrc]="character().image" width="300" height="300" [alt]="character().name" priority />
+    <button
+      type="button"
+      class="character-image-header"
+      (click)="character().favorite ? emitRemoveFavorite(character()) : emitAddFavorite(character())">
+      <span class="material-symbols-outlined" [class.filled]="character().favorite">favorite</span>
+    </button>
+  </div>
+  <div class="character-content">
+    <p class="text-primary">{{ character().name }}</p>
+    <p class="text-sm text-secondary">{{ character().species }}</p>
+  </div>
+</div>

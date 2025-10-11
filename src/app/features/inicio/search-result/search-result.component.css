@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.search-result-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, calc(300px));
+  gap: var(--spacing-md);
+  padding: var(--spacing-xl) 0px;
+}

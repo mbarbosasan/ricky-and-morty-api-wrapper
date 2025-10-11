@@ -1,0 +1,48 @@
+.character-card {
+  border: 1px solid var(--color-core-border);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-core-foreground);
+  color: var(--color-core-content);
+  overflow: hidden;
+}
+
+.character-image-container {
+  position: relative;
+}
+
+img {
+  object-fit: contain;
+  width: 100%;
+  border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+}
+
+.character-image-header {
+  cursor: pointer;
+  border: 0;
+  position: absolute;
+  right: -55px;
+  top: -40px;
+
+  width: 120px;
+  height: 100px;
+  border-radius: 80%;
+
+  display: flex;
+  align-items: center;
+  color: black;
+  backdrop-filter: blur(4px);
+}
+
+.character-image-header.favorite {
+  backdrop-filter: blur(0);
+  background-color: var(--color-neutral-surface);
+  color: var(--color-core-foreground);
+}
+
+.character-image-header span {
+  margin: 30px 0 0 30px;
+}
+
+.character-content {
+  padding: var(--spacing-md);
+}

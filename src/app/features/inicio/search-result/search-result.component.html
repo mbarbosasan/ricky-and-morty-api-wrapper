@@ -1,1 +1,9 @@
-<p>search-result works!</p>
+@if (!result()?.results) {
+  <app-search-empty-state />
+} @else {
+  <ul class="search-result-list">
+    @for (character of result()?.results; track $index) {
+      <app-search-result-item [character]="character" (addFavorite)="emitAddFavorite($event)" (removeFavorite)="emitRemoveFavorite($event)"></app-search-result-item>
+    }
+  </ul>
+}
