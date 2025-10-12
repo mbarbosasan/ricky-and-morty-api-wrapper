@@ -1,6 +1,8 @@
 # Ricky and Morty API Wrapper
 
-Projeto com a implementação de uma interface com Angular utilizando a [API do Ricky and Morty](https://rickandmortyapi.com/documentation/#introduction)
+Projeto com a implementação de uma interface com Angular utilizando a [API do Ricky and Morty](https://rickandmortyapi.com/documentation/#introduction).
+
+[Live](https://ricky-and-morty-api-wrapper.vercel.app)
 
 ![tela inicial da aplicação contendo um campo de pesquisa por nome, exibindo o resultado através de cards com foto, nome e raça.](./docs/image.png)
 
