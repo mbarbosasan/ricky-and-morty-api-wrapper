@@ -1,27 +1,69 @@
-# MottuCaseFrontend
+# Ricky and Morty API Wrapper
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Projeto com a implementação de uma interface com Angular utilizando a [API do Ricky and Morty](https://rickandmortyapi.com/documentation/#introduction)
 
-## Development server
+![tela inicial da aplicação contendo um campo de pesquisa por nome, exibindo o resultado através de cards com foto, nome e raça.](./docs/image.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Rodando o projeto localmente
 
-## Code scaffolding
+## Pre-requisitos:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Git** e **Node.js** ou **Docker**
 
-## Build
+Para executar o projeto há duas formas:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Git Clone:
 
-## Running unit tests
+```
+git clone https://github.com/mbarbosasan/ricky-and-morty-api-wrapper
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Na raiz do projeto:
 
-## Running end-to-end tests
+```
+pnpm i
+pnpm run start
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Acesse `http://localhost:4200` e a aplicação estará disponível.
 
-## Further help
+> [!NOTE]  
+> Caso não tenha o pnpm pode ser utilizado o npm normal, os comandos são os mesmos.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Docker
+
+```
+docker pull mbarbosas/ricky-and-morty-api-wrapper
+
+docker run -p 8080:80 mbarbosas/ricky-and-morty-api-wrapper
+```
+
+Acesse `http://localhost:8080` e a aplicação estará disponível.
+
+## Introdução
+
+Abaixo algumas explicações sobre como foi feito a implementação.
+
+### Estrutura
+
+O projeto está estruturado da forma como normalmente eu desenvolvo aplicações, seguindo as recomendações do Style Guide do Angular.
+
+**Core**: Se refere a dependências ou códigos que fazem parte do contexto "global" da aplicação, como por ex: Interceptors, Guards etc. Nesse caso em específico contém apenas um Interceptor e o Layout base da aplicação que eu considero como "Core".
+
+**Shared**: Essencialmente dependências que não fazem parte do "core" da aplicação e que podem ser utilizada por diversos "módulos/features" ao mesmo tempo, Ex: "blocos" de UI, Services.
+
+**Features**: Considero como feature qualquer parte da aplicação que tem seu próprio contexto e requisitos, sendo especificamente nesse caso a parte de "Início" e "Favoritos".
+
+E por último mas não menos importante, cada "feature" tem suas próprias camadas: Services, Models/Types, Components e etc.
+
+![alt text](docs/estrutura.png)
+
+### Reatividade
+
+A implementação foi feita pensada para ser completamente reativa, utilizando exaustivamente do RxJS e convertendo-os para Signal através do [toSignal](https://angular.dev/api/core/rxjs-interop/toSignal) quando estiverem sendo utilizados na UI, dessa forma podemos alterar o ChangeDetection de todos os componentes para OnPush e ter um ganho considerável de performance.
+
+Pessoalmente eu entendo que desenvolvendo dessa forma o código se torna mais fácil de manter e realizar a composição e também por acabar me "forçando" a escrever código declarativo ao invés de estruturado.
+
+- NgRx
+
+Eu preferi optar por não usar nenhuma biblioteca externa de gestão de estado por achar que não havia necessidade, acabaria escrevendo muito pra fazer pouco uma vez que o único estado global da aplicação é os "Favoritos" e por isso optei por fazer esse controle apenas com Subjects do RxJS.
