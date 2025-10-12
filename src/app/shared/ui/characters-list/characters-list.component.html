@@ -1,0 +1,8 @@
+<ul class="search-result-list">
+  @for (character of charactersList(); track $index) {
+    <app-character-card
+      [character]="character"
+      (addFavorite)="emitAddFavorite($event)"
+      (removeFavorite)="emitRemoveFavorite($event)"></app-character-card>
+  }
+</ul>

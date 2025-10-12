@@ -1,4 +1,4 @@
-<div class="search-container">
+<section class="search-container">
   <h1 class="text-2xl creepster">Início</h1>
   <div class="search-field">
     <app-input label="Pesquisar" type="text" id="pesquisar" placeholder="Tente 'Morty'" [formControl]="search" />
@@ -8,5 +8,5 @@
       }
     }
   </div>
-</div>
-<app-search-result [result]="searchResult()" (addFavorite)="addFavorite($event)" (removeFavorite)="removeFavorite($event)" />
+</section>
+<app-search-result [result]="searchResult()" />

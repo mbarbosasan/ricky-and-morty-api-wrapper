@@ -1,16 +1,16 @@
 import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
-import { CharacterWithFavorite } from '../services/model/character.model';
+import { CharacterWithFavorite } from 'src/app/features/inicio/services/model/character.model';
 
 @Component({
-  selector: 'app-search-result-item',
+  selector: 'app-character-card',
   standalone: true,
   imports: [NgOptimizedImage],
-  templateUrl: './search-result-item.component.html',
-  styleUrl: './search-result-item.component.css',
+  templateUrl: './character-card.component.html',
+  styleUrl: './character-card.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SearchResultItemComponent {
+export class CharacterCardComponent {
   character = input.required<CharacterWithFavorite>();
   addFavorite = output<CharacterWithFavorite>();
   removeFavorite = output<CharacterWithFavorite>();

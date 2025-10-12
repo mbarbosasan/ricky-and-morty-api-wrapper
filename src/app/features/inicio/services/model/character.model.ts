@@ -36,7 +36,7 @@ export type CharacterSearchResult = {
 
 export type CharacterSearchResultWithFavorites = {
   info: CharacterSearchInfo;
-  results: Array<Character & { favorite: boolean }>;
+  results: Array<CharacterWithFavorite>;
 };
 
 export const CharactersSearchResultToView = (

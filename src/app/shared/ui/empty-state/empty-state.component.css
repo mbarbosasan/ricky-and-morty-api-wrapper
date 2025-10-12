@@ -1,0 +1,16 @@
+.empty-state-container {
+  height: 50vh;
+  min-height: 400px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md);
+  text-wrap: balance;
+  text-align: center;
+
+  background-color: var(--color-core-foreground);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--color-core-border);
+}

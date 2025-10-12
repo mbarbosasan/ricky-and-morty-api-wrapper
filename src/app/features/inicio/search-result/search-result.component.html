@@ -1,9 +1,5 @@
-@if (!result()?.results) {
-  <app-search-empty-state />
+@if (!result().results) {
+  <app-empty-state title="Nada foi encontrado" description="Tente realizar uma nova busca." />
 } @else {
-  <ul class="search-result-list">
-    @for (character of result()?.results; track $index) {
-      <app-search-result-item [character]="character" (addFavorite)="emitAddFavorite($event)" (removeFavorite)="emitRemoveFavorite($event)"></app-search-result-item>
-    }
-  </ul>
+  <app-characters-list [charactersList]="result().results" (addFavorite)="addFavorite($event)" (removeFavorite)="removeFavorite($event)"></app-characters-list>
 }

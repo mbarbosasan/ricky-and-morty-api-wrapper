@@ -6,7 +6,11 @@ import { catchError, combineLatest, debounceTime, filter, first, map, of, switch
 import { InputComponent } from 'src/app/shared/ui/input/input.component';
 import { FavoriteCharactersService } from '../favoritos/services/favorite-characters.service';
 import { SearchResultComponent } from './search-result/search-result.component';
-import { CharactersSearchResultToView, CharacterWithFavorite } from './services/model/character.model';
+import {
+  CharacterSearchResultWithFavorites,
+  CharactersSearchResultToView,
+  CharacterWithFavorite,
+} from './services/model/character.model';
 import { SearchService } from './services/search.service';
 
 @Component({
@@ -39,14 +43,14 @@ export class InicioComponent implements OnInit {
           ),
           catchError((e) => {
             console.error(e);
-            return of(null);
+            return of({} as CharacterSearchResultWithFavorites);
           }),
         ),
       ),
       tap(() => this.registerSearchOnQueryParams(this.search)),
     ),
     {
-      initialValue: null,
+      initialValue: {} as CharacterSearchResultWithFavorites,
     },
   );
 
