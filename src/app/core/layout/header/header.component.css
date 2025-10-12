@@ -7,7 +7,6 @@
   width: 100%;
   max-width: var(--max-viewport-breakpoint);
   padding: var(--spacing-md);
-  border: 1px solid var(--color-core-border);
 
   display: flex;
   justify-content: space-between;
