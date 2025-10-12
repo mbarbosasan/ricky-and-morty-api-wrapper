@@ -49,7 +49,29 @@ Abaixo algumas explicações sobre como foi feito a implementação.
 ### i18n
 
 A internacionalização da aplicação está disponível apenas através da imagem Docker devido a necessidades das configurações no NGINX, tentei pesquisar sobre como poderia configurar na Vercel
-mas não consegui encontrar, para testar faça o pull da imagem Docker conforme dito no passo acima, e navegue para a porta da aplicação, atualmente só existe a versão "pt-BR" que é a default e a "en", para visitá-la basta alterar na URL para `http://localhost:8080/en`;
+mas não consegui encontrar nada parecido com os blocos de location do NGINX, abaixo como executar:
+
+#### Docker
+```
+docker pull mbarbosas/ricky-and-morty-api-wrapper
+
+docker run -p 8080:8080 mbarbosas/ricky-and-morty-api-wrapper
+```
+
+Atualmente só existe a versão "pt-BR" que é a padrão e a "en", para visitá-la basta alterar na URL para `http://localhost:8080/en`;
+
+#### Localmente
+```
+git clone https://github.com/mbarbosasan/ricky-and-morty-api-wrapper
+
+# As configurações de i18n estão separadas na branch ou acabaria quebrando a versão da Vercel.
+git checkout i18n
+
+pnpm i
+
+# Para visualizar no locale em inglês.
+ng serve --configuration=en
+```
 
 ![demo de internacionalização](./docs/i18n-demo.png)
 
