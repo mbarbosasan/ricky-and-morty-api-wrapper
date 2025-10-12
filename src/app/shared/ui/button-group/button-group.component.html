@@ -13,7 +13,9 @@
         [icon]="btn.icon"
         [routerLink]="btn.routerLink"
         [badge]="btn.badge"
-        (onClick)="selectedButton.set($index)" />
+        (onClick)="selectedButton.set($index)"
+        [enableRouterLinkActive]="true"
+        />
     }
   }
 </div>

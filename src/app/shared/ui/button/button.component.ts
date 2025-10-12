@@ -16,6 +16,7 @@ export class ButtonComponent {
   icon = input<string>();
   badge = input<number>();
   routerLink = input<string>();
+  enableRouterLinkActive = input<boolean>(false);
 
   onClick = output<void>();
 

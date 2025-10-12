@@ -1,20 +1,34 @@
 @if (type() === 'link') {
-  <a
-    [class]="classes()"
-    [routerLink]="routerLink()"
-    routerLinkActive="button-primary"
-    [routerLinkActiveOptions]="{ queryParams: 'ignored', matrixParams: 'ignored', paths: 'exact', fragment: 'ignored' }"
-    (click)="onClick.emit()">
-    @if (icon()) {
-      <span class="material-symbols-outlined">{{ icon() }}</span>
-    }
+  @if (!enableRouterLinkActive()) {
+    <a [class]="classes()" [routerLink]="routerLink()" (click)="onClick.emit()">
+      @if (icon()) {
+        <span class="material-symbols-outlined">{{ icon() }}</span>
+      }
 
-    <span>{{ label() }}</span>
+      <span>{{ label() }}</span>
 
-    @if (badge()) {
-      <span class="badge">{{ badge() }} </span>
-    }
-  </a>
+      @if (badge()) {
+        <span class="badge">{{ badge() }} </span>
+      }
+    </a>
+  } @else {
+    <a
+      [class]="classes()"
+      [routerLink]="routerLink()"
+      routerLinkActive="button-primary"
+      [routerLinkActiveOptions]="{ queryParams: 'ignored', matrixParams: 'ignored', paths: 'exact', fragment: 'ignored' }"
+      (click)="onClick.emit()">
+      @if (icon()) {
+        <span class="material-symbols-outlined">{{ icon() }}</span>
+      }
+  
+      <span>{{ label() }}</span>
+  
+      @if (badge()) {
+        <span class="badge">{{ badge() }} </span>
+      }
+    </a>
+  }
 } @else {
   <button [class]="classes()" [type]="type()" (click)="onClick.emit()">{{ label() }}</button>
 }

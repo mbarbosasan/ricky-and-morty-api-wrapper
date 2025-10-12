@@ -4,6 +4,7 @@
   color: var(--color-core-content);
   background: var(--color-core-foreground);
   border: 1px solid var(--color-core-border);
+  border-radius: var(--border-radius-sm);
   cursor: pointer;
   transition: background ease 0.2s;
 }
