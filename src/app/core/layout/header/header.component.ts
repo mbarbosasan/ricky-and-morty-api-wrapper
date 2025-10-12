@@ -1,6 +1,7 @@
 import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { RouterLink } from '@angular/router';
 import { FavoriteCharactersService } from 'src/app/features/favoritos/services/favorite-characters.service';
 import { ButtonGroupComponent } from 'src/app/shared/ui/button-group/button-group.component';
 import { ButtonGroup } from 'src/app/shared/ui/button-group/types/button-group.model';
@@ -8,7 +9,7 @@ import { ButtonGroup } from 'src/app/shared/ui/button-group/types/button-group.m
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [NgOptimizedImage, ButtonGroupComponent],
+  imports: [NgOptimizedImage, ButtonGroupComponent, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
