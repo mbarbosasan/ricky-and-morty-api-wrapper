@@ -1,0 +1,15 @@
+:host {
+  padding: var(--spacing-md);
+}
+
+.favorites-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.favorites-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, );
+}

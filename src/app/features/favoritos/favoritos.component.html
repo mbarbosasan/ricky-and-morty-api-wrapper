@@ -1,1 +1,11 @@
-<h1 class="text-2xl creepster">Favoritos</h1>
+@if (!favoritesCharacter().length) {
+  <app-empty-state title="Parece que você ainda não tem favoritos" description="Volte a pagina inicial e escolha os melhores para você.">
+    <app-button type="link" variant="primary" label="Voltar ao inicio" routerLink="/"></app-button>
+  </app-empty-state>
+} @else {
+  <section class="favorites-container">
+    <h1 class="text-2xl creepster">Favoritos</h1>
+    <app-characters-list [charactersList]="favoritesCharacter()" (removeFavorite)="removeFavorite($event)" />
+  </section>
+}
+

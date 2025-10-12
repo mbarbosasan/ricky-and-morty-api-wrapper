@@ -13,12 +13,16 @@ export class FavoriteCharactersService {
   addFavorite(character: CharacterWithFavorite) {
     const alreadyExists = this.favoriteCharacters.value.some((fav) => fav.name === character.name);
     if (alreadyExists) return;
-    this.favoriteCharacters.next([...this.favoriteCharacters.value, character]);
+    this.favoriteCharacters.next([
+      ...this.favoriteCharacters.value,
+      {
+        ...character,
+        favorite: true,
+      },
+    ]);
   }
 
   removeFavorite(character: CharacterWithFavorite) {
-    const characterExists = this.favoriteCharacters.value.some((fav) => fav.name === character.name);
-    if (!characterExists) return;
-    this.favoriteCharacters.next([...this.favoriteCharacters.value, character]);
+    this.favoriteCharacters.next(this.favoriteCharacters.value.filter((fav) => fav.name !== character.name));
   }
 }
