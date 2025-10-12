@@ -41,14 +41,18 @@ export class InicioComponent implements OnInit {
           ),
           catchError((e) => {
             console.error(e);
-            return of({} as CharacterSearchResultWithFavorites);
+            return of({
+              results: null,
+            } as CharacterSearchResultWithFavorites);
           }),
         ),
       ),
       tap(() => this.registerSearchOnQueryParams(this.search, this.page.value)),
     ),
     {
-      initialValue: {} as CharacterSearchResultWithFavorites,
+      initialValue: {
+        results: null,
+      } as CharacterSearchResultWithFavorites,
     },
   );
 

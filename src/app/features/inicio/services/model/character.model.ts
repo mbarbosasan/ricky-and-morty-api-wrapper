@@ -35,8 +35,8 @@ export type CharacterSearchResult = {
 };
 
 export type CharacterSearchResultWithFavorites = {
-  info: CharacterSearchMetadata;
-  results: Array<CharacterWithFavorite>;
+  info: CharacterSearchMetadata | null;
+  results: Array<CharacterWithFavorite> | null;
 };
 
 export const CharactersSearchResultToView = (
