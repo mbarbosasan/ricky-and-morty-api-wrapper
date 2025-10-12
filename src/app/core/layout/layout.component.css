@@ -5,8 +5,8 @@
 }
 
 .main-container {
-  width: 100svw;
-  min-height: 100svh;
+  width: 100%;
+  min-height: 100dvh;
 }
 
 .main-content {
