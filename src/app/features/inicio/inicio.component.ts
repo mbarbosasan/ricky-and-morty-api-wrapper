@@ -2,15 +2,11 @@ import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/cor
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { catchError, combineLatest, debounceTime, filter, first, map, of, switchMap, tap } from 'rxjs';
+import { BehaviorSubject, catchError, combineLatest, debounceTime, filter, first, map, of, switchMap, tap } from 'rxjs';
 import { InputComponent } from 'src/app/shared/ui/input/input.component';
 import { FavoriteCharactersService } from '../favoritos/services/favorite-characters.service';
 import { SearchResultComponent } from './search-result/search-result.component';
-import {
-  CharacterSearchResultWithFavorites,
-  CharactersSearchResultToView,
-  CharacterWithFavorite,
-} from './services/model/character.model';
+import { CharacterSearchResultWithFavorites, CharactersSearchResultToView } from './services/model/character.model';
 import { SearchService } from './services/search.service';
 
 @Component({
@@ -29,13 +25,15 @@ export class InicioComponent implements OnInit {
   private readonly activatedRoute = inject(ActivatedRoute);
 
   search = this.fb.control('', [Validators.required]);
+  page = new BehaviorSubject<string>('1');
+  page$ = this.page.asObservable();
 
   searchResult = toSignal(
-    this.search.valueChanges.pipe(
+    combineLatest([this.search.valueChanges, this.page$]).pipe(
       filter(() => this.search.valid),
       debounceTime(500),
-      switchMap((name) =>
-        this.searchService.searchCharacters(name!).pipe(
+      switchMap(([name, page]) =>
+        this.searchService.searchCharacters(name!, page).pipe(
           switchMap((characters) =>
             combineLatest([of(characters), this.favoriteCharacterService.favoriteCharacters$]).pipe(
               map(([characters, favorites]) => CharactersSearchResultToView(characters, favorites)),
@@ -47,7 +45,7 @@ export class InicioComponent implements OnInit {
           }),
         ),
       ),
-      tap(() => this.registerSearchOnQueryParams(this.search)),
+      tap(() => this.registerSearchOnQueryParams(this.search, this.page.value)),
     ),
     {
       initialValue: {} as CharacterSearchResultWithFavorites,
@@ -57,22 +55,20 @@ export class InicioComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.queryParamMap.pipe(first()).subscribe((query) => {
       this.search.setValue(query.get('name'));
+      this.page.next(query.get('page') || '1');
     });
   }
 
-  registerSearchOnQueryParams(form: FormControl) {
+  registerSearchOnQueryParams(form: FormControl, page: string) {
     this.router.navigate([], {
       queryParams: {
         name: form.value,
+        page,
       },
     });
   }
 
-  removeFavorite(character: CharacterWithFavorite) {
-    this.favoriteCharacterService.removeFavorite(character);
-  }
-
-  addFavorite(character: CharacterWithFavorite) {
-    this.favoriteCharacterService.addFavorite(character);
+  pageChanged(page: number) {
+    this.page.next(page.toString());
   }
 }

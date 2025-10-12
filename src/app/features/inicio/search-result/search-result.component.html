@@ -1,5 +1,6 @@
 @if (!result().results) {
   <app-empty-state title="Nada foi encontrado" description="Tente realizar uma nova busca." />
 } @else {
-  <app-characters-list [charactersList]="result().results" (addFavorite)="addFavorite($event)" (removeFavorite)="removeFavorite($event)"></app-characters-list>
+  <app-characters-list [charactersList]="result().results" (addFavorite)="addFavorite($event)" (removeFavorite)="removeFavorite($event)" />
+  <app-paginator [metadata]="result().info" (pageChanged)="pageChanged.emit($event)" />
 }

@@ -1,0 +1,11 @@
+<ul class="paginator-container">
+  @for (page of pages(); track $index) {
+    <li>
+      <app-button
+        type="button"
+        [label]="page"
+        [variant]="actualPage() === page ? 'primary' : 'secondary'"
+        (onClick)="pageChanged.emit(page)"></app-button>
+    </li>
+  }
+</ul>

@@ -9,4 +9,4 @@
     }
   </div>
 </section>
-<app-search-result [result]="searchResult()" />
+<app-search-result [result]="searchResult()" (pageChanged)="pageChanged($event)"/>

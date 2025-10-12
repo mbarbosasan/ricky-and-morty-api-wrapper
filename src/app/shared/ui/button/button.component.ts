@@ -12,7 +12,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class ButtonComponent {
   type = input.required<'button' | 'link'>();
   variant = input.required<'primary' | 'secondary'>();
-  label = input.required<string>();
+  label = input.required<string | number>();
   icon = input<string>();
   badge = input<number>();
   routerLink = input<string>();

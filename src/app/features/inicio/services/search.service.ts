@@ -8,13 +8,13 @@ import { CharacterSearchResult } from './model/character.model';
 })
 export class SearchService {
   private readonly http = inject(HttpClient);
-
   constructor() {}
 
-  searchCharacters(character: string) {
+  searchCharacters(character: string, page: string) {
     return this.http.get<CharacterSearchResult>(`${API_URL}/character`, {
       params: {
         name: character,
+        page,
       },
     });
   }

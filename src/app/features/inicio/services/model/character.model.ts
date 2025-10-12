@@ -22,20 +22,20 @@ export type CharacterWithFavorite = Character & {
   favorite: boolean;
 };
 
-export type CharacterSearchInfo = {
+export type CharacterSearchMetadata = {
   count: number;
   pages: number;
-  next: string;
-  prev: null;
+  next: string | null;
+  prev: string | null;
 };
 
 export type CharacterSearchResult = {
-  info: CharacterSearchInfo;
+  info: CharacterSearchMetadata;
   results: Character[];
 };
 
 export type CharacterSearchResultWithFavorites = {
-  info: CharacterSearchInfo;
+  info: CharacterSearchMetadata;
   results: Array<CharacterWithFavorite>;
 };
 
@@ -43,9 +43,30 @@ export const CharactersSearchResultToView = (
   searchResult: CharacterSearchResult,
   favoriteCharacters: CharacterWithFavorite[],
 ): CharacterSearchResultWithFavorites => ({
-  info: searchResult.info,
+  info: {
+    ...searchResult.info,
+    next: getPageNumber(searchResult.info, 'next'),
+    prev: getPageNumber(searchResult.info, 'prev'),
+  },
   results: searchResult.results.map((character) => ({
     ...character,
     favorite: favoriteCharacters.some((fav) => fav.name === character.name),
   })),
 });
+
+const getPageNumber = (infoObject: CharacterSearchMetadata, key: string): string | null => {
+  if (!infoObject.next) return null;
+  const [_, query] = infoObject.next.split('?');
+  if (!query) return null;
+  const queryObject = query.split('&').reduce(
+    (acc, item) => {
+      const [key, value] = item.split('=');
+      return (acc = {
+        ...acc,
+        [key]: value,
+      });
+    },
+    {} as { page: string; name: string },
+  );
+  return queryObject['page'] ? queryObject['page'] : null;
+}; 
