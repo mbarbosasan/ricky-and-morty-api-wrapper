@@ -13,3 +13,14 @@
   width: 20vw;
   min-width: 300px;
 }
+
+@media (max-width: 600px) {
+  .search-container {
+    justify-content: center;
+    gap: var(--spacing-md);
+  }
+
+  .search-field {
+    width: 100%;
+  }
+}

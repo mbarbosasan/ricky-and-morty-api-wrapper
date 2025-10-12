@@ -4,3 +4,9 @@
   gap: var(--spacing-md);
   padding: var(--spacing-xl) 0px;
 }
+
+@media (max-width: 630px) {
+  .search-result-list {
+    justify-content: center;
+  }
+}

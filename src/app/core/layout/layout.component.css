@@ -20,3 +20,9 @@
 app-header {
   background-color: var(--color-core-foreground);
 }
+
+@media (max-width: 800px) {
+  .main-content {
+    width: 100%;
+  }
+}

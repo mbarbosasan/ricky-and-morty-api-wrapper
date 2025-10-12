@@ -64,6 +64,6 @@ A implementação foi feita pensada para ser completamente reativa, utilizando e
 
 Pessoalmente eu entendo que desenvolvendo dessa forma o código se torna mais fácil de manter e realizar a composição e também por acabar me "forçando" a escrever código declarativo ao invés de estruturado.
 
-- NgRx
+- **NgRX**
 
 Eu preferi optar por não usar nenhuma biblioteca externa de gestão de estado por achar que não havia necessidade, acabaria escrevendo muito pra fazer pouco uma vez que o único estado global da aplicação é os "Favoritos" e por isso optei por fazer esse controle apenas com Subjects do RxJS.

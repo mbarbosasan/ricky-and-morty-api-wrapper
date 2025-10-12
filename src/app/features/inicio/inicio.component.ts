@@ -30,8 +30,8 @@ export class InicioComponent implements OnInit {
 
   searchResult = toSignal(
     combineLatest([this.search.valueChanges, this.page$]).pipe(
-      filter(() => this.search.valid),
       debounceTime(500),
+      filter(() => this.search.valid),
       switchMap(([name, page]) =>
         this.searchService.searchCharacters(name!, page).pipe(
           switchMap((characters) =>

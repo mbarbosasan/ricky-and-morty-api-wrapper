@@ -11,4 +11,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 400px) {
+  .header-container {
+    justify-content: center;
+    gap: var(--spacing-md);
+  }
 }
