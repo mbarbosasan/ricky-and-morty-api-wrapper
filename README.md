@@ -37,7 +37,7 @@ Acesse `http://localhost:4200` e a aplicação estará disponível.
 ```
 docker pull mbarbosas/ricky-and-morty-api-wrapper
 
-docker run -p 8080:80 mbarbosas/ricky-and-morty-api-wrapper
+docker run -p 8080:8080 mbarbosas/ricky-and-morty-api-wrapper
 ```
 
 Acesse `http://localhost:8080` e a aplicação estará disponível.
@@ -45,6 +45,13 @@ Acesse `http://localhost:8080` e a aplicação estará disponível.
 ## Introdução
 
 Abaixo algumas explicações sobre como foi feito a implementação.
+
+### i18n
+
+A internacionalização da aplicação está disponível apenas através da imagem Docker devido a necessidades das configurações no NGINX, tentei pesquisar sobre como poderia configurar na Vercel
+mas não consegui encontrar, para testar faça o pull da imagem Docker conforme dito no passo acima, e navegue para a porta da aplicação, atualmente só existe a versão "pt-BR" que é a default e a "en", para visitá-la basta alterar na URL para `http://localhost:8080/en`;
+
+![demo de internacionalização](./docs/i18n-demo.png)
 
 ### Estrutura
 
