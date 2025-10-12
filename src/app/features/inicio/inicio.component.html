@@ -1,10 +1,10 @@
 <section class="search-container">
-  <h1 class="text-2xl creepster">Início</h1>
+  <h1 class="text-2xl creepster" i18n>Início</h1>
   <div class="search-field">
-    <app-input label="Pesquisar" type="text" id="pesquisar" placeholder="Tente 'Morty'" [formControl]="search" />
+    <app-input i18n-label="label_pesquisar_inicio" label="Pesquisar" type="text" id="pesquisar" [formControl]="search" />
     @if (search.touched && search.invalid) {
       @if (search.getError('required')) {
-        <span class="text-sm text-error">Campo obrigatório.</span>
+        <span class="text-sm text-error" i18n>Campo obrigatório.</span>
       }
     }
   </div>

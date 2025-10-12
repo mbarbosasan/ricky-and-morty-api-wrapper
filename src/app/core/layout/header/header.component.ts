@@ -21,14 +21,14 @@ export class HeaderComponent {
 
   headerButtons = computed<ButtonGroup[]>(() => [
     {
-      label: 'Início',
+      label: $localize`:Botão de início do Header:Início`,
       type: 'link',
       routerLink: '/',
       selected: false,
       icon: 'home',
     },
     {
-      label: 'Favoritos',
+      label: $localize`:Botão de favoritos do Header:Favoritos`,
       type: 'link',
       routerLink: '/favoritos',
       selected: false,

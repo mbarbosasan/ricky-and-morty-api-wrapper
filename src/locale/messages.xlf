@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="pt" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="8237522812427434567" datatype="html">
+        <source>Início</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/layout/header/header.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/inicio/inicio.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+        <note priority="1" from="description">Botão de início do Header</note>
+      </trans-unit>
+      <trans-unit id="8307013293442796509" datatype="html">
+        <source>Favoritos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/layout/header/header.component.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/favoritos/favoritos.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+        <note priority="1" from="description">Botão de favoritos do Header</note>
+      </trans-unit>
+      <trans-unit id="7305894821176545328" datatype="html">
+        <source>Parece que você ainda não tem favoritos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/favoritos/favoritos.component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+        <note priority="1" from="description">{empty_state_title_favoritos}</note>
+      </trans-unit>
+      <trans-unit id="5400944175415954425" datatype="html">
+        <source>Volte a pagina inicial e escolha os melhores para você.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/favoritos/favoritos.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+        <note priority="1" from="description">{empty_state_description_favoritos}</note>
+      </trans-unit>
+      <trans-unit id="3599260599293074368" datatype="html">
+        <source>Voltar ao inicio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/favoritos/favoritos.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+        <note priority="1" from="description">{empty_state_voltar_favoritos}</note>
+      </trans-unit>
+      <trans-unit id="6434071570521467395" datatype="html">
+        <source>Pesquisar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/inicio/inicio.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description">label_pesquisar_inicio</note>
+      </trans-unit>
+      <trans-unit id="138280660628785564" datatype="html">
+        <source>Campo obrigatório.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/inicio/inicio.component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="335951501694236636" datatype="html">
+        <source>Nada foi encontrado</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/inicio/search-result/search-result.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description">{empty_state_title_search_result}</note>
+      </trans-unit>
+      <trans-unit id="2457561194372999418" datatype="html">
+        <source>Tente realizar uma nova busca.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/inicio/search-result/search-result.component.html</context>
+          <context context-type="linenumber">2,4</context>
+        </context-group>
+        <note priority="1" from="description">{empty_state_description_search_result}</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
