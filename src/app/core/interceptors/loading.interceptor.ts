@@ -1,6 +1,6 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { catchError, finalize, of, tap } from 'rxjs';
+import { catchError, finalize, tap, throwError } from 'rxjs';
 import { LoadingService } from '../../shared/ui/loading/loading.service';
 
 export const loadingInterceptor: HttpInterceptorFn = (req, next) => {
@@ -8,7 +8,7 @@ export const loadingInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req).pipe(
     catchError((e) => {
       loadingService.setLoading(false);
-      return of(e);
+      return throwError(() => e);
     }),
     tap(() => {
       loadingService.setLoading(true);

@@ -6,7 +6,7 @@ import { BehaviorSubject, catchError, combineLatest, debounceTime, filter, first
 import { InputComponent } from 'src/app/shared/ui/input/input.component';
 import { FavoriteCharactersService } from '../favoritos/services/favorite-characters.service';
 import { SearchResultComponent } from './search-result/search-result.component';
-import { CharacterSearchResultWithFavorites, CharactersSearchResultToView } from './services/model/character.model';
+import { CharactersSearchResultToView } from './services/model/character.model';
 import { SearchService } from './services/search.service';
 
 @Component({
@@ -41,18 +41,14 @@ export class InicioComponent implements OnInit {
           ),
           catchError((e) => {
             console.error(e);
-            return of({
-              results: null,
-            } as CharacterSearchResultWithFavorites);
+            return of(null);
           }),
         ),
       ),
       tap(() => this.registerSearchOnQueryParams(this.search, this.page.value)),
     ),
     {
-      initialValue: {
-        results: null,
-      } as CharacterSearchResultWithFavorites,
+      initialValue: null,
     },
   );
 

@@ -15,7 +15,7 @@ import { CharacterSearchResultWithFavorites, CharacterWithFavorite } from '../se
 })
 export class SearchResultComponent {
   private readonly favoriteCharacterService = inject(FavoriteCharactersService);
-  result = input.required<CharacterSearchResultWithFavorites>();
+  result = input.required<CharacterSearchResultWithFavorites | null>();
   pageChanged = output<number>();
 
   addFavorite(character: CharacterWithFavorite) {
