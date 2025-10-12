@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { CharacterWithFavorite } from 'src/app/features/inicio/services/model/character.model';
 import { CharacterCardComponent } from '../character-card/character-card.component';
 
@@ -8,6 +8,7 @@ import { CharacterCardComponent } from '../character-card/character-card.compone
   imports: [CharacterCardComponent],
   templateUrl: './characters-list.component.html',
   styleUrl: './characters-list.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharactersListComponent {
   charactersList = input.required<CharacterWithFavorite[]>();
