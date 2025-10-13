@@ -12,7 +12,7 @@ RUN pnpm run build
 
 FROM nginx:alpine AS prod
 
-COPY --from=build /app/dist/mottu-case-frontend/browser /usr/share/nginx/html
+COPY --from=build /app/dist/ricky-and-morty-api-wrapper/browser /usr/share/nginx/html
 
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
