@@ -14,11 +14,12 @@ export class CharacterCardComponent {
   addFavorite = output<CharacterWithFavorite>();
   removeFavorite = output<CharacterWithFavorite>();
 
-  emitAddFavorite(character: CharacterWithFavorite) {
-    this.addFavorite.emit(character);
-  }
+  emitActionFavorite(character: CharacterWithFavorite) {
+    if (character.favorite) {
+      this.removeFavorite.emit(character);
+      return;
+    } 
 
-  emitRemoveFavorite(character: CharacterWithFavorite) {
-    this.removeFavorite.emit(character);
+    this.addFavorite.emit(character);
   }
 }

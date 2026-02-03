@@ -5,7 +5,7 @@
       type="button"
       class="character-image-header"
       [class.favorite]="character().favorite"
-      (click)="character().favorite ? emitRemoveFavorite(character()) : emitAddFavorite(character())">
+      (click)="emitActionFavorite(character)">
       <span class="material-symbols-outlined" [class.filled]="character().favorite">favorite</span>
     </button>
   </div>
