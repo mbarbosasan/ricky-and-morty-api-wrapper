@@ -2,12 +2,11 @@ import { ChangeDetectionStrategy, Component, computed, input, output, signal } f
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
-  selector: 'app-button',
-  standalone: true,
-  imports: [RouterLink, RouterLinkActive],
-  templateUrl: './button.component.html',
-  styleUrl: './button.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-button',
+    imports: [RouterLink, RouterLinkActive],
+    templateUrl: './button.component.html',
+    styleUrl: './button.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonComponent {
   type = input.required<'button' | 'link'>();

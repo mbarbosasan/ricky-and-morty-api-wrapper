@@ -10,12 +10,11 @@ import { CharactersSearchResultToView } from './services/model/character.model';
 import { SearchService } from './services/search.service';
 
 @Component({
-  selector: 'app-inicio',
-  standalone: true,
-  imports: [InputComponent, SearchResultComponent, ReactiveFormsModule],
-  templateUrl: './inicio.component.html',
-  styleUrl: './inicio.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-inicio',
+    imports: [InputComponent, SearchResultComponent, ReactiveFormsModule],
+    templateUrl: './inicio.component.html',
+    styleUrl: './inicio.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InicioComponent implements OnInit {
   private readonly fb = inject(FormBuilder);

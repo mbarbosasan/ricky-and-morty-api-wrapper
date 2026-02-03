@@ -7,12 +7,11 @@ import { CharacterWithFavorite } from '../inicio/services/model/character.model'
 import { FavoriteCharactersService } from './services/favorite-characters.service';
 
 @Component({
-  selector: 'app-favoritos',
-  standalone: true,
-  imports: [CharactersListComponent, EmptyStateComponent, ButtonComponent],
-  templateUrl: './favoritos.component.html',
-  styleUrl: './favoritos.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-favoritos',
+    imports: [CharactersListComponent, EmptyStateComponent, ButtonComponent],
+    templateUrl: './favoritos.component.html',
+    styleUrl: './favoritos.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FavoritosComponent {
   private readonly favoritesCharacterService = inject(FavoriteCharactersService);

@@ -3,12 +3,11 @@ import { ButtonComponent } from '../button/button.component';
 import { ButtonGroup } from './types/button-group.model';
 
 @Component({
-  selector: 'app-button-group',
-  standalone: true,
-  imports: [ButtonComponent],
-  templateUrl: './button-group.component.html',
-  styleUrl: './button-group.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-button-group',
+    imports: [ButtonComponent],
+    templateUrl: './button-group.component.html',
+    styleUrl: './button-group.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonGroupComponent {
   buttons = input.required<ButtonGroup[]>();

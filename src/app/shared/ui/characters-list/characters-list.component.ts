@@ -3,12 +3,11 @@ import { CharacterWithFavorite } from 'src/app/features/inicio/services/model/ch
 import { CharacterCardComponent } from '../character-card/character-card.component';
 
 @Component({
-  selector: 'app-characters-list',
-  standalone: true,
-  imports: [CharacterCardComponent],
-  templateUrl: './characters-list.component.html',
-  styleUrl: './characters-list.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-characters-list',
+    imports: [CharacterCardComponent],
+    templateUrl: './characters-list.component.html',
+    styleUrl: './characters-list.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CharactersListComponent {
   charactersList = input.required<CharacterWithFavorite[]>();

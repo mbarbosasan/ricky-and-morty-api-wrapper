@@ -3,11 +3,10 @@ import { ButtonComponent } from 'src/app/shared/ui/button/button.component';
 import { CharacterSearchMetadata } from '../services/model/character.model';
 
 @Component({
-  selector: 'app-paginator',
-  standalone: true,
-  imports: [ButtonComponent],
-  templateUrl: './paginator.component.html',
-  styleUrl: './paginator.component.css',
+    selector: 'app-paginator',
+    imports: [ButtonComponent],
+    templateUrl: './paginator.component.html',
+    styleUrl: './paginator.component.css'
 })
 export class PaginatorComponent {
   metadata = input.required<CharacterSearchMetadata>();

@@ -6,12 +6,11 @@ import { PaginatorComponent } from '../paginator/paginator.component';
 import { CharacterSearchResultWithFavorites, CharacterWithFavorite } from '../services/model/character.model';
 
 @Component({
-  selector: 'app-search-result',
-  standalone: true,
-  imports: [CharactersListComponent, EmptyStateComponent, PaginatorComponent],
-  templateUrl: './search-result.component.html',
-  styleUrl: './search-result.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-search-result',
+    imports: [CharactersListComponent, EmptyStateComponent, PaginatorComponent],
+    templateUrl: './search-result.component.html',
+    styleUrl: './search-result.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchResultComponent {
   private readonly favoriteCharacterService = inject(FavoriteCharactersService);

@@ -2,19 +2,18 @@ import { ChangeDetectionStrategy, Component, forwardRef, input, signal } from '@
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'app-input',
-  standalone: true,
-  imports: [],
-  templateUrl: './input.component.html',
-  styleUrl: './input.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: forwardRef(() => InputComponent),
-    },
-  ],
+    selector: 'app-input',
+    imports: [],
+    templateUrl: './input.component.html',
+    styleUrl: './input.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: forwardRef(() => InputComponent),
+        },
+    ]
 })
 export class InputComponent implements ControlValueAccessor {
   type = input.required<string>();

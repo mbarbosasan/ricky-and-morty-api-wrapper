@@ -7,12 +7,11 @@ import { ButtonGroupComponent } from 'src/app/shared/ui/button-group/button-grou
 import { ButtonGroup } from 'src/app/shared/ui/button-group/types/button-group.model';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [NgOptimizedImage, ButtonGroupComponent, RouterLink],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-header',
+    imports: [NgOptimizedImage, ButtonGroupComponent, RouterLink],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
   private readonly favoritesService = inject(FavoriteCharactersService);
