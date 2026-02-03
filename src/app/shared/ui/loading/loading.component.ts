@@ -6,7 +6,7 @@ import { LoadingService } from './loading.service';
     selector: 'app-loading',
     imports: [],
     templateUrl: './loading.component.html',
-    styleUrl: './loading.component.scss'
+    styleUrl: './loading.component.css'
 })
 export class LoadingComponent {
   private readonly loadingService = inject(LoadingService);
