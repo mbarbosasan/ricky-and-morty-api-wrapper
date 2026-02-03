@@ -1,5 +1,5 @@
 import { NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, OnInit } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { FavoriteCharactersService } from 'src/app/features/favoritos/services/favorite-characters.service';
@@ -13,7 +13,7 @@ import { ButtonGroup } from 'src/app/shared/ui/button-group/types/button-group.m
     styleUrl: './header.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   private readonly favoritesService = inject(FavoriteCharactersService);
 
   favorites = toSignal(this.favoritesService.favoriteCharacters$);
@@ -35,4 +35,8 @@ export class HeaderComponent {
       badge: this.favorites()?.length,
     },
   ]);
+
+  ngOnInit(): void {
+    this.favoritesService.syncSessionStorage();
+  }
 }
